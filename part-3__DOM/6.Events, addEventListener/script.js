@@ -1,6 +1,6 @@
-var button = document.querySelector('button')
-var h1 = document.querySelector('h1')
-var input = document.querySelector('input')
+let button = document.querySelector('button')
+let h1 = document.querySelector('h1')
+let input = document.querySelector('input')
 
 
 // background-color => backgroundColor

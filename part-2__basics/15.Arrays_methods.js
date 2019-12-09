@@ -1,4 +1,4 @@
-var cars = ['Ford', 'Mazda', 'Kia', 'BMW']
+let cars = ['Ford', 'Mazda', 'Kia', 'BMW']
 console.log(cars)
 console.log(cars[2])
 
@@ -9,18 +9,18 @@ cars.push('Audi')
 console.log(cars)
 
 // delete and return last
-var audi = cars.pop()
+let audi = cars.pop()
 console.log(cars, audi)
 
 // delete and return first 
-var ford = cars.shift()
+let ford = cars.shift()
 console.log(cars, ford)
 
 // add to start 
 cars.unshift(audi)
 console.log(cars)
 
-var index = cars.indexOf('Kia')
-var kia = cars[index]
+let index = cars.indexOf('Kia')
+let kia = cars[index]
 
 console.log(kia)

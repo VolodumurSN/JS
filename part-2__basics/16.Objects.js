@@ -1,4 +1,4 @@
-var person = {
+let person = {
     name: 'Василь',
     year: 1990,
     family: ['Олена', 'Ігор'],
@@ -14,7 +14,7 @@ var person = {
   console.log(person)
   console.log(person.name)
   console.log(person['year'])
-  var field = 'car'
+  let field = 'car'
   console.log(person[field].year)
   
   person.year = 1993

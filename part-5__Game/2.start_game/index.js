@@ -14,6 +14,15 @@ $game.addEventListener('click', handleBoxClick)
 $gameTime.addEventListener('input', setGameTime)
 
 
+function show($el) {
+    $el.classList.remove('hide')
+}
+
+function hide($el) {
+    $el.classList.add('hide')   // hide with CSS class 'hide'   
+}
+
+
 function handleBoxClick(event) {    // Listening clicks
     if (!isGameStarted) {
         return
@@ -32,11 +41,8 @@ function startGame() {
     setGameTime()
     $gameTime.setAttribute('disabled', 'true')    //block input after game start
 
-    $timeHeader.classList.remove('hide')
-    $resultHeader.classList.add('hide')
-
-    $start.classList.add('hide')    // hide btn with CSS class 'hide'
-    $game.style.background = '#fff'     //filling game box in white 
+    hide($start)      //hide btn
+    $game.style.background = '#fff'     //filling game box in white
     
     let interval = setInterval(function() {     // strart timer
         let time = parseFloat($time.textContent)
@@ -60,6 +66,9 @@ function setGameScore() {
 function setGameTime() {
     let time = +$gameTime.value
     $time.textContent = time.toFixed(1)
+
+    show($timeHeader)
+    hide($resultHeader)
 }
 
 
@@ -69,11 +78,11 @@ function endGame() {
     $gameTime.removeAttribute('disabled')    //enable input after game start
 
     $game.innerHTML = ''    //clear square
-    $start.classList.remove('hide')     //show btn
+    show($start)     //show btn
     $game.style.backgroundColor = '#ccc'
 
-    $timeHeader.classList.add('hide')
-    $resultHeader.classList.remove('hide')
+    hide($timeHeader)
+    show($resultHeader)
 }
 
 

@@ -6,6 +6,7 @@ const $timeHeader = document.querySelector('#time-header')
 const $resultHeader = document.querySelector('#result-header')
 const $gameTime = document.querySelector('#game-time')
 
+let colors = ['#CB356B', '#BD3F32', '#3A1C71', '#D76D77', '#283c86', '#45a247', '#2F80ED']
 let score = 0
 let isGameStarted = false
 
@@ -93,13 +94,14 @@ function renderBox() {
     let gameSize = $game.getBoundingClientRect()
     let maxTop = gameSize.height - boxSize
     let maxLeft = gameSize.width - boxSize
+    let randomColorIndex = getRandom(0, colors.length)
 
     //style for square
     box.style.height = box.style.width = boxSize + 'px'
     box.style.position = 'absolute'
     box.style.top = getRandom(0, maxTop) + 'px'
     box.style.left = getRandom(0, maxLeft) + 'px'
-    box.style.backgroundColor = '#000'
+    box.style.backgroundColor = colors[randomColorIndex]
     box.style.cursor = 'pointer' 
     box.setAttribute('data-box', 'true')   // set special attribute for square
 
@@ -110,3 +112,16 @@ function renderBox() {
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
+
+/* function randomColor() {
+    
+    let random = getRandom(0, 999)
+
+    if (random < 10) {
+        return '00' + random
+    }else if (random < 100){
+        return '0' + random
+    }else{
+        return random.toString()
+    } 
+} */

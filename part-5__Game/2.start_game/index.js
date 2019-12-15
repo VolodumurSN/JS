@@ -1,12 +1,17 @@
 const $start = document.querySelector('#start')
 const $game = document.querySelector('#game')
 const $time = document.querySelector('#time')
+const $result = document.querySelector('#result')
+const $timeHeader = document.querySelector('#time-header')
+const $resultHeader = document.querySelector('#result-header')
+const $gameTime = document.querySelector('#game-time')
 
 let score = 0
 let isGameStarted = false
 
 $start.addEventListener('click', startGame)
 $game.addEventListener('click', handleBoxClick)
+$gameTime.addEventListener('input', setGameTime)
 
 
 function handleBoxClick(event) {    // Listening clicks
@@ -20,8 +25,15 @@ function handleBoxClick(event) {    // Listening clicks
     }
 }
 
+
 function startGame() {
     isGameStarted = true
+    score = 0
+    setGameTime()
+    $gameTime.setAttribute('disabled', 'true')    //block input after game start
+
+    $timeHeader.classList.remove('hide')
+    $resultHeader.classList.add('hide')
 
     $start.classList.add('hide')    // hide btn with CSS class 'hide'
     $game.style.background = '#fff'     //filling game box in white 
@@ -40,9 +52,30 @@ function startGame() {
     renderBox()     // generate random square
 }
 
+
+function setGameScore() {
+    $result.textContent = score.toString()
+}
+
+function setGameTime() {
+    let time = +$gameTime.value
+    $time.textContent = time.toFixed(1)
+}
+
+
 function endGame() {
     isGameStarted = false
+    setGameScore()
+    $gameTime.removeAttribute('disabled')    //enable input after game start
+
+    $game.innerHTML = ''    //clear square
+    $start.classList.remove('hide')     //show btn
+    $game.style.backgroundColor = '#ccc'
+
+    $timeHeader.classList.add('hide')
+    $resultHeader.classList.remove('hide')
 }
+
 
 function renderBox() {
     $game.innerHTML = ''    // clear square
@@ -63,6 +96,7 @@ function renderBox() {
 
     $game.insertAdjacentElement('afterbegin', box)   // put square in game block
 }
+
 
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min) + min)

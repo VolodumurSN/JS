@@ -2,11 +2,11 @@
 // object
 
 var car = {
-  name: 'Ford',
-  year: 2015,
-  person: {
+    name: 'Ford',
+    year: 2015,
+    person: {
 
-  }
+    }
 }
 
 // car.__proto__ => Object.prototype

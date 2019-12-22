@@ -1,28 +1,25 @@
-function Array(ownArray) {
-    this.ownArray = ownArray
-}
-
-Array.prototype.powArray = function () {
-
-    let arrayToPow = this.ownArray
+let firstArray = [1, 2, 3]
+let secondArray = [5, 'Hello', 6]
 
 
-    return arrayToPow.map(function(i) { 
+Array.prototype.powArray = function () {    //Creating prototype 'powArray' in  Global Array 
+
+    return this.map(function(item) { 
         
-        if (typeof i === 'string') {
-            return i.repeat(2)
+        if (typeof item === 'string') {
+            return item.repeat(2)
         }
-        else{
-            return Math.pow(i, 2) 
+        if (typeof item === 'number'){
+            return Math.pow(item, 2) 
         }
 
     })
 }
 
 
-let firstArray = new Array([1, 2, 3])
-let secondArray = new Array([5, 'Hello', 6])
+let newFirstArray = firstArray.powArray()
+let newSecondArray = secondArray.powArray()
 
-console.log(firstArray.powArray())
-console.log(secondArray.powArray())
+console.log(newFirstArray)
+console.log(newSecondArray)
 

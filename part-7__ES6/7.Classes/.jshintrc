@@ -4,12 +4,12 @@
 	"indent": 4,
 	"undef": true,
 	"quotmark": "single",
-	"maxlen": 80,
+	"maxlen": 100,
 	"trailing": true,
 	"curly": true,
 	"strict": false,
 	"browser": true,
 	"devel": true,
 	"jquery": true,
-	"esversion": 6
+	"esversion": 9
 }

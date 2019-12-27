@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Plugin</title>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .app{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+
+            justify-content: center;
+            overflow: hidden;
+
+            padding-top: 50px;    
+        }
+
+        .dropdown{
+            width: 400px;
+            position: relative;
+        }
+
+        .dropdown.open .dropdown__menu{
+            display: block;
+        }
+
+        .dropdown__label{
+            width: 100%;
+            padding: 5px 10px;
+            
+            border-radius: 5px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .dropdown__menu{
+            display: none;
+            width: 100%;
+
+            position: absolute;
+            top: 29px;
+            margin: 0;
+            padding: 0;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            border-radius: 5px;
+            border: 1px solid black;
+            list-style: none;
+        }
+
+        .dropdown__menu li{
+            padding: 5px 10px;
+        }
+
+        .dropdown__menu li:hover {
+            background: rgba(0, 0, 0, .2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+
+
+        <div class="dropdown" id="dropdown">
+            
+            <div class="dropdown__label"></div>
+
+            <ul class="dropdown__menu"></ul>
+
+        </div>        
+
+
+    </div>
+    
+    <script defer src="index.js"></script>
+</body>
+</html>

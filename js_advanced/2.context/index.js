@@ -1,3 +1,4 @@
+
 function hello() {
     console.log('Hello', this);
 }
@@ -26,3 +27,17 @@ const liza = {
 person.logInfo.bind(liza, '09987976')()
 person.logInfo.call(liza, '09987976')
 person.logInfo.apply(liza, ['09987976'])
+
+/// =========
+
+const array = [10, 15, 20, 2, 3]
+/* 
+function multBy(arr, n) {
+    return arr.map(i => i * n)
+}
+ */
+
+Array.prototype.multBy = function (n) {
+    return this.map(i => i * n)
+}
+console.log(array.multBy(2))
